@@ -3,13 +3,16 @@
     background: linear-gradient(0deg, #dcdbd3 85%, #429488 85%);
 }
 
+i {
+    color: gray;
+    opacity: 0.8;
+}
+
 .sidebar {
-    border: 1px solid black;
     height: 500px;
 }
 
 .centerbar {
-    border: 1px solid blue;
     height: 500px;
 }
 
@@ -35,7 +38,7 @@ nav {
     border-radius: 100%;
 }
 
-section {
+.notifications-section {
     display: flex;
     align-items: center;
     height: 70px;
@@ -55,3 +58,35 @@ section {
 
 .icon-bell-container > i {color: #9fd8f8;}
 
+.main-sidebar {
+    height: 380px;
+    background-color: #fafafa;
+}
+
+.search-chat-section {
+    margin: 12px 0;
+    border: 1px solid black;
+}
+
+.messages-chat-section {
+    border: 1px solid black;
+    height: 325px;
+}
+
+
+.centerbar-main {
+    background-image: url(../img/mine.jpg);
+    height: 400px;
+}
+
+footer {
+    height: 50px;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-icon-container {
+    font-size: 24px;
+}
