@@ -73,6 +73,16 @@ nav {
     height: 325px;
 }
 
+.avatar-contacts-container > img {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.avatar-contacts-container {
+    width: 100%;
+    border-top: 1px solid rgb(241, 241, 241);
+    margin: 12px 0;
+}
 
 .centerbar-main {
     background-image: url(../img/mine.jpg);
