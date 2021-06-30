@@ -16,10 +16,11 @@
         <div id="app">
 
             <div class="container main-container">
-                <div class="row">
+                <div class="row h-100">
                     <!-- Sidebar -->
-                    <div class="sidebar col-4"> 
-                            <div class="row">
+                    <div class="sidebar col-4">
+                        <div
+                            class="row">
 
                             <!-- Navbar -->
                             <nav class="sidebar-navbar">
@@ -31,7 +32,7 @@
                                     <div>Adina Pop</div>
                                 </div>
 
-                                <div class="icons-nav-container">
+                                <div class="icons-nav">
                                     <i class="fas fa-circle-notch"></i>
                                     <i class="fas fa-comment-alt"></i>
                                     <i class="fas fa-ellipsis-v"></i>
@@ -50,25 +51,20 @@
                                 </div>
                             </section>
 
-                            <!-- Main sidebar -->
-                            <main
-                                class="main-sidebar">
-
-                                <!-- Search Chat -->
-                                <section class="search-chat-section">
-                                    <i class="fas fa-search"></i>
+                            <!-- Search Chat -->
+                            <section class="search-chat-container">
+                                <div class="search-chat-section">
+                                    <i class="fas fa-search search-sidebar"></i>
                                     <input type="text" placeholder="Cerca o inizia una nuova chat">
-                                </section>
+                                </div>
+                            </section>
 
-                                <!-- TODO: Fix the margin left -->
-                                <!-- Chats -->
-                                <section class="messages-chat-section">
-                                    <div class="avatar-contacts-container" v-for="contact in contacts">
-                                        <img :src="getImg(contact)" alt="Avatar contact">
-                                        {{ contact.name }}
-                                    </div>
-                                </section>
-
+                            <!-- Main sidebar -->
+                            <main class="main-sidebar">
+                                <div class="avatar-contacts" v-for="contact in contacts">
+                                    <img :src="getImg(contact)" alt="Avatar contact">
+                                    {{ contact.name }}
+                                </div>
                             </main>
 
                         </div>
@@ -88,13 +84,15 @@
                                     <div class="img-navbar-avatar">
                                         <img src="./img/avatar_1.jpg" alt="Michele's avatar">
                                     </div>
-                                    <div>
+
+                                    <div class="user-info">
                                         <div>Michele</div>
-                                        <div>Ultimo accesso...</div>
+                                        <div class="last-access-user">Ultimo accesso oggi alle 17:19</div>
                                     </div>
+
                                 </div>
 
-                                <div class="icons-nav-container">
+                                <div class="icons-nav">
                                     <i class="fas fa-search"></i>
                                     <i class="fas fa-paperclip"></i>
                                     <i class="fas fa-ellipsis-v"></i>
@@ -112,7 +110,7 @@
                                     <!-- Interlocutor messagge -->
                                     <div class="interlocutor-message">
                                         <div>Tutto fatto!</div>
-                                        <div class="last-access">Ultimo accesso alle....</div>
+                                        <div class="last-access">30/06/2021 17:31</div>
                                     </div>
 
                                 </div>
@@ -124,13 +122,13 @@
                                     <!-- User Message -->
                                     <div class="user-message">
                                         <div>Hai portato a spasso il cane?</div>
-                                        <div class="last-access">Ultimo accesso alle....</div>
+                                        <div class="last-access">30/06/2021 17:25</div>
                                     </div>
 
                                     <!-- User message -->
                                     <div class="user-message">
                                         <div>Ricordati di dargli da mangiare</div>
-                                        <div class="last-access">Ultimo accesso alle....</div>
+                                        <div class="last-access">30/06/2021 17:25</div>
                                     </div>
                                 </div>
 

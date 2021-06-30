@@ -3,20 +3,8 @@ body {
     background: linear-gradient(0deg, #dcdbd3 90%, #429488 90%);
 }
 
-i {
-    color: gray;
-    opacity: 0.8;
-}
-
-.main-container {
-    padding-top: 12px;
-}
-
-.sidebar, .content {height: 100%;}
-
-.main-sidebar {
-    background-color: #fafafa;
-}
+/* utility classes */ 
+.main-container {padding-top: 12px;}
 
 .main-content {
     background-image: url(../img/mine.jpg);
@@ -25,6 +13,12 @@ i {
     overflow-y: scroll;
     height: calc(100% - 140px);
 }
+
+.search-chat-container {
+    background-color: #f6f6f6;
+}
+
+.main-sidebar {background-color: white;}
 
 nav {
     display: flex;
@@ -35,11 +29,32 @@ nav {
     background-color: #eaeaea;
 }
 
-.sidebar-navbar {border-right: 1px solid gray;}
+.sidebar-navbar {border-right: 1px solid #b1b1b1;}
+/* end utilities */
+
+/* icons */
+i {
+    color: gray;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.icons-nav > i {
+    padding: 0 6px;
+    font-size: 18px;
+}
+/* end icons */
+
+/* input classes */
+input {border: none;}
+
+input:focus {outline: none;}
+/* end input classes */
 
 .info-nav-container {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .img-navbar-avatar {width: 50px;}
@@ -54,6 +69,7 @@ nav {
     align-items: center;
     width: 100%;
     background-color: #9fd8f8;
+    padding: 12px;
 }
 
 .icon-bell-container {
@@ -66,18 +82,43 @@ nav {
 
 .icon-bell-container > i {color: #9fd8f8;}
 
-/* da riguardare per eliminare */
-.search-chat-section {margin: 8px 0;}
+.notifications-container {
+    padding-left: 12px;
+    font-size: 15px
+}
 
-.avatar-contacts-container > img {
+a {
+    font-size: 12px;
+    color: gray;
+}
+
+/* da riguardare per eliminare */
+.search-chat-section {
+    margin: 8px 0;
+    background-color: white;
+    padding: 0 12px;
+}
+
+.search-sidebar {padding-right: 12px;}
+
+.avatar-contacts-container:first-child {border-top: none;}
+
+.avatar-contacts > img {
     width: 50px;
     border-radius: 100%;
 }
 
-.avatar-contacts-container {
+.avatar-contacts {
     width: 100%;
     border-top: 1px solid rgb(241, 241, 241);
     margin: 12px 0;
+    cursor: pointer;
+}
+
+.user-info {padding-left: 12px;}
+.last-access-user {
+    font-size: 12px;
+    color: gray;
 }
 
 .message-box {
@@ -90,7 +131,7 @@ nav {
     background-color: white;
     border-radius: 12px;
     margin-bottom: 12px;
-    padding: 12px;
+    padding: 6px 12px;
 }
 
 .last-access {
@@ -101,7 +142,7 @@ nav {
 .user-message {
     background-color: #dcf8c0;
     border-radius: 12px;
-    padding: 12px;
+    padding: 6px 12px;
     margin: 6px 0;
 }
 
@@ -119,4 +160,11 @@ footer {
 
 .footer-icon-container {
     font-size: 24px;
+}
+
+.messagge-input {
+    flex-basis: 80%;
+    background: white;
+    padding: 12px;
+    border-radius: 24px;
 }
