@@ -24,13 +24,13 @@
                     <div class="row">
 
                         <!-- Navbar -->
-                        <nav>
+                        <nav class="sidebar-navbar">
 
                             <div class="info-nav-container">
                                 <div class="img-navbar-avatar">
-                                    <img src="" alt="">
+                                    <img src="./img/avatar_io.jpg" alt="">
                                 </div>
-                                <div>Nome Utente</div>
+                                <div>Adina Pop</div>
                             </div>
 
                             <div class="icons-nav-container">
@@ -41,6 +41,7 @@
                             
                         </nav>
 
+                        <!-- Notification Turn ON/OFF -->
                         <section class="notifications-section">
                             <div class="icon-bell-container">
                                 <i class="fas fa-bell-slash"></i>
@@ -51,14 +52,17 @@
                             </div>
                         </section>
 
+                        <!-- Main sidebar -->
                         <main class="main-sidebar">
 
+                            <!-- Search Chat -->
                             <section class="search-chat-section">
                                 <i class="fas fa-search"></i>
                                 <input type="text" placeholder="Cerca o inizia una nuova chat" size="40">
                             </section>
 
-                            <!-- Fix the margin left -->
+                            <!-- TODO: Fix the margin left -->
+                            <!-- Chats -->
                             <section class="messages-chat-section">
                                 <div class="avatar-contacts-container" v-for="contact in contacts">
                                     <img :src="getImg(contact)" alt="Avatar contact">
@@ -80,9 +84,10 @@
 
                         <!-- Navbar -->
                         <nav>
+
                             <div class="info-nav-container">
                                 <div class="img-navbar-avatar">
-                                    <img src="" alt="">
+                                    <img src="./img/avatar_1.jpg" alt="Michele's avatar">
                                 </div>
                                 <div>  
                                     <div>Michele</div>
@@ -98,24 +103,46 @@
                         </nav>
 
                         <!-- Main -->
-
                         <main class="centerbar-main">
+
+                            <!-- Live chat messages -->
+                            <div class="message-box col-4">
+
+                                <!-- Interlocutor messagge -->
+                                <div class="interlocutor-message">
+                                    <div>Tutto fatto!</div>
+                                    <div class="last-access">Ultimo accesso alle....</div>
+                                </div>
+
+                            </div>
+
+                            <!-- Live chat messages -->
+                            <div class="message-box col-4">
+
+                                <!-- User Message -->
+                                <div class="user-message">
+                                    <div>Hai portato a spasso il cane?</div>
+                                    <div class="last-access">Ultimo accesso alle....</div>
+                                </div>
+
+                                <!-- User message -->
+                                <div class="user-message">
+                                    <div>Ricordati di dargli da mangiare</div>
+                                    <div class="last-access">Ultimo accesso alle....</div>
+                                </div>
+                            </div>
 
                         </main>
 
                         <!-- Footer -->
                         <footer>
-                            <div class="footer-icon-container">
-                                <i class="far fa-smile"></i>
-                            </div>
+                            <div class="footer-icon-container"><i class="far fa-smile"></i></div>
 
                             <div class="messagge-input">
                                 <input placeholder="Scrivi un messaggio" size="85">
                             </div>
 
-                            <div class="footer-icon-container">
-                                <i class="fas fa-microphone"></i>
-                            </div>
+                            <div class="footer-icon-container"><i class="fas fa-microphone"></i></div>
                         </footer>
 
 
