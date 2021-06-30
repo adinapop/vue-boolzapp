@@ -1,161 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
-    <title>BoolzApp</title>
-</head>
-<body>
-    
-    <div id="app">
+        <title>BoolzApp</title>
+    </head>
+    <body>
 
-        <div class="container">
-            <div class="row">
-                <!-- Sidebar -->
-                <!-- TODO: Add scrollbar -->
-                <div class="sidebar col-4 mt-4">
-                    
-                    <div class="row">
+        <div id="app">
 
-                        <!-- Navbar -->
-                        <nav class="sidebar-navbar">
+            <div class="container main-container">
+                <div class="row">
+                    <!-- Sidebar -->
+                    <div class="sidebar col-4"> 
+                            <div class="row">
 
-                            <div class="info-nav-container">
-                                <div class="img-navbar-avatar">
-                                    <img src="./img/avatar_io.jpg" alt="">
+                            <!-- Navbar -->
+                            <nav class="sidebar-navbar">
+
+                                <div class="info-nav-container">
+                                    <div class="img-navbar-avatar">
+                                        <img src="./img/avatar_io.jpg" alt="">
+                                    </div>
+                                    <div>Adina Pop</div>
                                 </div>
-                                <div>Adina Pop</div>
-                            </div>
 
-                            <div class="icons-nav-container">
-                                <i class="fas fa-circle-notch"></i>
-                                <i class="fas fa-comment-alt"></i>
-                                <i class="fas fa-ellipsis-v"></i>
-                            </div>
-                            
-                        </nav>
+                                <div class="icons-nav-container">
+                                    <i class="fas fa-circle-notch"></i>
+                                    <i class="fas fa-comment-alt"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
 
-                        <!-- Notification Turn ON/OFF -->
-                        <section class="notifications-section">
-                            <div class="icon-bell-container">
-                                <i class="fas fa-bell-slash"></i>
-                            </div>
-                            <div class="notifications-container">
-                                <div>Ricevi notifiche di nuovi messaggi</div>
-                                <a href="#">Attiva notifiche desktop</a>
-                            </div>
-                        </section>
+                            </nav>
 
-                        <!-- Main sidebar -->
-                        <main class="main-sidebar">
-
-                            <!-- Search Chat -->
-                            <section class="search-chat-section">
-                                <i class="fas fa-search"></i>
-                                <input type="text" placeholder="Cerca o inizia una nuova chat" size="40">
-                            </section>
-
-                            <!-- TODO: Fix the margin left -->
-                            <!-- Chats -->
-                            <section class="messages-chat-section">
-                                <div class="avatar-contacts-container" v-for="contact in contacts">
-                                    <img :src="getImg(contact)" alt="Avatar contact">
-                                    {{ contact.name }}
+                            <!-- Notification Turn ON/OFF -->
+                            <section class="notifications-section">
+                                <div class="icon-bell-container">
+                                    <i class="fas fa-bell-slash"></i>
+                                </div>
+                                <div class="notifications-container">
+                                    <div>Ricevi notifiche di nuovi messaggi</div>
+                                    <a href="#">Attiva notifiche desktop</a>
                                 </div>
                             </section>
 
-                        </main>
+                            <!-- Main sidebar -->
+                            <main
+                                class="main-sidebar">
+
+                                <!-- Search Chat -->
+                                <section class="search-chat-section">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                                </section>
+
+                                <!-- TODO: Fix the margin left -->
+                                <!-- Chats -->
+                                <section class="messages-chat-section">
+                                    <div class="avatar-contacts-container" v-for="contact in contacts">
+                                        <img :src="getImg(contact)" alt="Avatar contact">
+                                        {{ contact.name }}
+                                    </div>
+                                </section>
+
+                            </main>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <!-- Content -->
+                    <div class="content col-8">
 
-                <!-- Centerbar -->
-                <!-- TODO: Add scrollbar -->
-                <div class="centerbar col-8 mt-4">
+                        <div
+                            class="row">
 
-                    <div class="row">
+                            <!-- Navbar -->
+                            <nav>
 
-                        <!-- Navbar -->
-                        <nav>
-
-                            <div class="info-nav-container">
-                                <div class="img-navbar-avatar">
-                                    <img src="./img/avatar_1.jpg" alt="Michele's avatar">
-                                </div>
-                                <div>  
-                                    <div>Michele</div>
-                                    <div>Ultimo accesso...</div>
-                                </div>
-                            </div>
-
-                            <div class="icons-nav-container">
-                                <i class="fas fa-search"></i>
-                                <i class="fas fa-paperclip"></i>
-                                <i class="fas fa-ellipsis-v"></i>
-                            </div>
-                        </nav>
-
-                        <!-- Main -->
-                        <main class="centerbar-main">
-
-                            <!-- Live chat messages -->
-                            <div class="message-box col-4">
-
-                                <!-- Interlocutor messagge -->
-                                <div class="interlocutor-message">
-                                    <div>Tutto fatto!</div>
-                                    <div class="last-access">Ultimo accesso alle....</div>
+                                <div class="info-nav-container">
+                                    <div class="img-navbar-avatar">
+                                        <img src="./img/avatar_1.jpg" alt="Michele's avatar">
+                                    </div>
+                                    <div>
+                                        <div>Michele</div>
+                                        <div>Ultimo accesso...</div>
+                                    </div>
                                 </div>
 
-                            </div>
+                                <div class="icons-nav-container">
+                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-paperclip"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                            </nav>
 
-                            <!-- Live chat messages -->
-                            <div class="message-box col-4">
+                            <!-- Main -->
+                            <main
+                                class="main-content">
 
-                                <!-- User Message -->
-                                <div class="user-message">
-                                    <div>Hai portato a spasso il cane?</div>
-                                    <div class="last-access">Ultimo accesso alle....</div>
+                                <!-- Live chat messages -->
+                                <div
+                                    class="message-box col-4">
+
+                                    <!-- Interlocutor messagge -->
+                                    <div class="interlocutor-message">
+                                        <div>Tutto fatto!</div>
+                                        <div class="last-access">Ultimo accesso alle....</div>
+                                    </div>
+
                                 </div>
 
-                                <!-- User message -->
-                                <div class="user-message">
-                                    <div>Ricordati di dargli da mangiare</div>
-                                    <div class="last-access">Ultimo accesso alle....</div>
+                                <!-- Live chat messages -->
+                                <div
+                                    class="message-box col-4">
+
+                                    <!-- User Message -->
+                                    <div class="user-message">
+                                        <div>Hai portato a spasso il cane?</div>
+                                        <div class="last-access">Ultimo accesso alle....</div>
+                                    </div>
+
+                                    <!-- User message -->
+                                    <div class="user-message">
+                                        <div>Ricordati di dargli da mangiare</div>
+                                        <div class="last-access">Ultimo accesso alle....</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </main>
+                            </main>
 
-                        <!-- Footer -->
-                        <footer>
-                            <div class="footer-icon-container"><i class="far fa-smile"></i></div>
+                            <!-- Footer -->
+                            <footer>
+                                <div class="footer-icon-container">
+                                    <i class="far fa-smile"></i>
+                                </div>
 
-                            <div class="messagge-input">
-                                <input placeholder="Scrivi un messaggio" size="85">
-                            </div>
+                                <div class="messagge-input">
+                                    <input placeholder="Scrivi un messaggio">
+                                </div>
 
-                            <div class="footer-icon-container"><i class="fas fa-microphone"></i></div>
-                        </footer>
+                                <div class="footer-icon-container">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                            </footer>
 
+
+                        </div>
 
                     </div>
-
                 </div>
             </div>
+
         </div>
-
-
-    </div>
-
-
-    <script src="./js/script.js"></script>
-</body>
-</html>
+    </body>
+</html></div><script src="./js/script.js"></script></body></html>

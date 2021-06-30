@@ -1,4 +1,4 @@
-#app {
+body {
     height: 100vh;
     background: linear-gradient(0deg, #dcdbd3 90%, #429488 90%);
 }
@@ -8,9 +8,23 @@ i {
     opacity: 0.8;
 }
 
-.sidebar {height: 500px;}
+.main-container {
+    padding-top: 12px;
+}
 
-.centerbar {height: 500px;}
+.sidebar, .content {height: 100%;}
+
+.main-sidebar {
+    background-color: #fafafa;
+}
+
+.main-content {
+    background-image: url(../img/mine.jpg);
+    display: flex;
+    justify-content: space-around;
+    overflow-y: scroll;
+    height: calc(100% - 140px);
+}
 
 nav {
     display: flex;
@@ -22,13 +36,6 @@ nav {
 }
 
 .sidebar-navbar {border-right: 1px solid gray;}
-
-.centerbar-main {
-    background-image: url(../img/mine.jpg);
-    height: 380px;
-    display: flex;
-    justify-content: space-around;
-}
 
 .info-nav-container {
     display: flex;
@@ -45,7 +52,6 @@ nav {
 .notifications-section {
     display: flex;
     align-items: center;
-    height: 70px;
     width: 100%;
     background-color: #9fd8f8;
 }
@@ -54,27 +60,14 @@ nav {
     background-color: white;
     border-radius: 100%;
     width: 50px;
-    height: 50px;
     text-align: center;
     line-height: 50px;
 }
 
 .icon-bell-container > i {color: #9fd8f8;}
 
-.main-sidebar {
-    height: 380px;
-    background-color: #fafafa;
-}
-
-.search-chat-section {
-    margin: 12px 0;
-    border: 1px solid black;
-}
-
-.messages-chat-section {
-    border: 1px solid black;
-    height: 325px;
-}
+/* da riguardare per eliminare */
+.search-chat-section {margin: 8px 0;}
 
 .avatar-contacts-container > img {
     width: 50px;
@@ -86,7 +79,6 @@ nav {
     border-top: 1px solid rgb(241, 241, 241);
     margin: 12px 0;
 }
-
 
 .message-box {
     display: flex;
