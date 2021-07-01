@@ -91,7 +91,9 @@ new Vue (
                         }
                     ],
                 }
-            ]
+            ],
+
+            currentUserIndex: 0
 
         },
 
@@ -104,7 +106,14 @@ new Vue (
                 return "./img/avatar" + userProfile.avatar + ".jpg";
 
             /* ricorda anche variante con index */
+            },
+
+            // function per indicare quale esatto user voglio
+            thisUser: function(index) {
+                return this.currentUserIndex = index
             }
+
+
         }
     }
 );

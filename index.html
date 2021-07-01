@@ -98,78 +98,23 @@
                             </nav>
 
                             <!-- Main -->
-                            <main class="main-content">
+                            <main class="chat-container">
                                 
-                                <!-- User Message -->
-                                <div class="send-message">
-                                    <div>Hai portato a spasso il cane?</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
+                                <!-- il messaggio esatto dell'index corrispondente all'interno dell'array contacts, da dove prendere l'esatto messaggio dell'esatto user, preso dalla function-->
+                                <div class="send-message-box" 
+                                v-for="(message, index) in contacts[currentUserIndex].messages">
+                                    <div class="sent">
+                                        <div>{{ message.text }}</div>
+                                        <div class="last-access">{{ message.date }}</div>
+                                    </div>
+                                </div>  
                                 
-                                <!-- User message -->
-                                <div class="send-message">
-                                    <div>Ricordati di dargli da mangiare</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- Interlocutor messagge -->
-                                <div class="received-message">
-                                    <div>Tutto fatto!</div>
-                                    <div class="last-access">30/06/2021 17:31</div>
-                                </div>
-
-                                <!-- User Message -->
-                                <div class="send-message">
-                                    <div>Hai portato a spasso il cane?</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- User message -->
-                                <div class="send-message">
-                                    <div>Ricordati di dargli da mangiare</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- Interlocutor messagge -->
-                                <div class="received-message">
-                                    <div>Tutto fatto!</div>
-                                    <div class="last-access">30/06/2021 17:31</div>
-                                </div>
-
-                                <!-- User Message -->
-                                <div class="send-message">
-                                    <div>Hai portato a spasso il cane?</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- User message -->
-                                <div class="send-message">
-                                    <div>Ricordati di dargli da mangiare</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- Interlocutor messagge -->
-                                <div class="received-message">
-                                    <div>Tutto fatto!</div>
-                                    <div class="last-access">30/06/2021 17:31</div>
-                                </div>
-
-                                <!-- User Message -->
-                                <div class="send-message">
-                                    <div>Hai portato a spasso il cane?</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- User message -->
-                                <div class="send-message">
-                                    <div>Ricordati di dargli da mangiare</div>
-                                    <div class="last-access">30/06/2021 17:25</div>
-                                </div>
-                                
-                                <!-- Interlocutor messagge -->
-                                <div class="received-message">
-                                    <div>Tutto fatto!</div>
-                                    <div class="last-access">30/06/2021 17:31</div>
+                                <!-- Così non funziona(errore in console perché ovviamente il message è undefined), quindi (?) creo una funzione per vedere lo status del messaggio in modo da poterlo inserire in una delle classi sent o received -->
+                                <div class="received-message-box">
+                                    <div class="received">
+                                        <div>{{ message.text }}</div>
+                                        <div class="last-access">{{ message.date }}</div>
+                                    </div>
                                 </div>
 
                             </main>
