@@ -96,13 +96,7 @@ new Vue (
             currentUserIndex: 0,
             newMessage: "",
         },
-
-        // created () {
-        //     setTimeout(() => {
-        //         this.receiveAnswer();
-        //     }, 1000)
-        // },
-
+        
         methods: {
             // function per immagine dinamiche, associata direttamene al nome utente
             getImg: function(contact) {
@@ -110,7 +104,7 @@ new Vue (
             },
 
             // function per indicare quale esatto user voglio
-            thisUser: function(index) {
+            thisChat: function(index) {
                 return this.currentUserIndex = index;
             },
 
