@@ -100,20 +100,25 @@
                             <!-- Main -->
                             <main class="chat-container">
                                 
-                                <!-- il messaggio esatto dell'index corrispondente all'interno dell'array contacts, da dove prendere l'esatto messaggio dell'esatto user, preso dalla function-->
-                                <div class="send-message-box" 
-                                v-for="(message, index) in contacts[currentUserIndex].messages">
-                                    <div class="sent">
-                                        <div>{{ message.text }}</div>
-                                        <div class="last-access">{{ message.date }}</div>
-                                    </div>
-                                </div>  
                                 
-                                <!-- Così non funziona(errore in console perché ovviamente il message è undefined), quindi (?) creo una funzione per vedere lo status del messaggio in modo da poterlo inserire in una delle classi sent o received -->
-                                <div class="received-message-box">
-                                    <div class="received">
-                                        <div>{{ message.text }}</div>
-                                        <div class="last-access">{{ message.date }}</div>
+                                
+                                <!-- creo un altro div per poter inserire dentro entrambe le boxes dei messaggi sent o received -->
+                                <div v-for="(message, index) in contacts[currentUserIndex].messages">
+                                    <!-- il messaggio esatto dell'index corrispondente all'interno dell'array contacts, da dove prendere l'esatto messaggio dell'esatto user, preso dalla function-->
+                                    
+                                    <div class="send-message-box" v-if="controllMessage(message.status)">
+                                        <div class="sent">
+                                            <div>{{ message.text }}</div>
+                                            <div class="last-access">{{ message.date }}</div>
+                                        </div>
+                                    </div>  
+                                    
+                                    <!-- Così non funziona(errore in console perché ovviamente il message è undefined), quindi (?) creo una funzione per vedere lo status del messaggio in modo da poterlo inserire in una delle classi sent o received -->
+                                    <div class="received-message-box" v-else="controllMessage(message.status)">
+                                        <div class="received">
+                                            <div>{{ message.text }}</div>
+                                            <div class="last-access">{{ message.date }}</div>
+                                        </div>
                                     </div>
                                 </div>
 

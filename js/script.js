@@ -111,9 +111,17 @@ new Vue (
             // function per indicare quale esatto user voglio
             thisUser: function(index) {
                 return this.currentUserIndex = index
+            },
+
+            // function per controllare se il messaggio è sent o no, per poterlo inserire nella clsse sent o recevied
+            controllMessage: function(status) {
+                // se lo status è sent inserisco nel messaggio mandato, altrimenti...
+                if (status === "sent") {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-
-
         }
     }
 );
