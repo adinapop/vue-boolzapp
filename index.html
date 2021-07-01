@@ -55,6 +55,7 @@
                             <main class="main-sidebar">
                                 <div class="avatar-contacts" 
                                 v-for="(contact, index) in contacts"
+                                :class="colorChat(index)"
                                 @click="thisChat(index)">
                                     <img :src="getImg(contact)" alt="Avatar contact">
                                     <span>{{ contact.name }}</span>

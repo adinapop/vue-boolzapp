@@ -108,6 +108,14 @@ new Vue (
                 return this.currentUserIndex = index;
             },
 
+            colorChat: function(index) {
+                if (index === this.currentUserIndex) {
+                    return "current";
+                } else {
+                    return "nothing";
+                }
+            },
+
             // function per controllare se il messaggio è sent o no, per poterlo inserire nella clsse sent o recevied
             controllMessage: function(status) {
                 if (status === "sent") {
@@ -119,8 +127,9 @@ new Vue (
             
             // function per inserire un nuovo messaggio all'interno dell'oggetto status:Sent perché deve essere nella casella verde
             addNewMessage: function() { 
+                this.newMessage = this.newMessage[0].toUpperCase() + this.newMessage.slice(1);
                 this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:26", text: this.newMessage, status: "sent"});
-                newMessage = ""; // TODO: Non si cancella l'input
+                this.newMessage = ""; // TODO: Non si cancella l'input
                 this.receiveAnswer();
             },
 
@@ -129,7 +138,11 @@ new Vue (
                 setTimeout(() => {
                     return this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:27", text: "Ok", status: "received"});
                 }, 1000)
-            }
+            },
+            
+            toUpperCase: function(word) {
+                word.charAt(0).toUpperCase() + word.slice(1);
+            },
         }
     }
 );
