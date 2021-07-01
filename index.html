@@ -134,7 +134,9 @@
                                 </div>
 
                                 <div class="messagge-input">
-                                    <input placeholder="Scrivi un messaggio">
+                                    <input placeholder="Scrivi un messaggio"
+                                    v-model="newMessage"
+                                    @keyup.enter="addNewMessage">
                                 </div>
 
                                 <div class="footer-icon-container">

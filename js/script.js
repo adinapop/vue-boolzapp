@@ -90,12 +90,18 @@ new Vue (
                             status: 'received'
                         }
                     ],
-                }
+                },
             ],
 
-            currentUserIndex: 0
-
+            currentUserIndex: 0,
+            newMessage: "",
         },
+
+        // created () {
+        //     setTimeout(() => {
+        //         this.receiveAnswer();
+        //     }, 1000)
+        // },
 
         methods: {
             // function per immagine dinamiche, associata direttamene al nome utente
@@ -115,7 +121,21 @@ new Vue (
                 } else {
                     return false;
                 }
-            }        
+            },
+            
+            // function per inserire un nuovo messaggio all'interno dell'oggetto status:Sent perché deve essere nella casella verde
+            addNewMessage: function() { 
+                this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:26", text: this.newMessage, status: "sent"});
+                newMessage = ""; // TODO: Non si cancella l'input
+                this.receiveAnswer();
+            },
+
+            // function per risposta
+            receiveAnswer: function() {
+                setTimeout(() => {
+                    return this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:27", text: "Ok", status: "received"});
+                }, 1000)
+            }
         }
     }
 );
