@@ -98,30 +98,24 @@ new Vue (
         },
 
         methods: {
-            // funzione per avere un'immagine dinamiche, associata direttamene al nome utente
-            getImg: function(userProfile) {
-                // nome generico delle foto (_n° è nella proprietà avatar dell'oggetto)
-                // la proprietà avatar dell'oggetto
-                // tipo file foto
-                return "./img/avatar" + userProfile.avatar + ".jpg";
-
-            /* ricorda anche variante con index */
+            // function per immagine dinamiche, associata direttamene al nome utente
+            getImg: function(contact) {
+                return "./img/avatar" + contact.avatar + ".jpg";
             },
 
             // function per indicare quale esatto user voglio
             thisUser: function(index) {
-                return this.currentUserIndex = index
+                return this.currentUserIndex = index;
             },
 
             // function per controllare se il messaggio è sent o no, per poterlo inserire nella clsse sent o recevied
             controllMessage: function(status) {
-                // se lo status è sent inserisco nel messaggio mandato, altrimenti...
                 if (status === "sent") {
                     return true;
                 } else {
                     return false;
                 }
-            }
+            }        
         }
     }
 );

@@ -58,8 +58,11 @@
                             </section>
 
                             <!-- Main sidebar -->
+                            <!-- TODO: on click background-color:gray -->
                             <main class="main-sidebar">
-                                <div class="avatar-contacts" v-for="contact in contacts">
+                                <div class="avatar-contacts" 
+                                v-for="(contact, index) in contacts"
+                                @click="thisUser(index)">
                                     <img :src="getImg(contact)" alt="Avatar contact">
                                     {{ contact.name }}
                                 </div>
