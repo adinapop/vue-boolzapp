@@ -164,19 +164,19 @@ new Vue (
                 }, 2000)
             },
 
-            // function per filtare i contacts e cercare quello che vuoi
-            filteredContactName: function(nameContact, key) { 
-                
-                this.contacts.forEach((nameContact, key) => {
-                    console.log(nameContact.name)
+            // function per verificare se la quello che viene inserito nel data textSearchName sia incluso nella proprietà name
+            filteredContactName: function() { 
 
-                    if (this.nameContact.name.toLowerCase().includes(textSearchName.toLowerCase())) {
-                        this.nameContact.visible = true;
-                    } else {
-                        this.nameContact.visible = false;
-                    }
-                });
-            },
-        }
+                // nameContact = l'elemento della lista contatti
+                this.contacts.forEach((nameContact) => {
+                    // .toLowerCase() serve per .includes
+                        if(nameContact.name.toLowerCase().includes(this.textSearchName)) {
+                            nameContact.visible = true;
+                        } else {
+                            nameContact.visible = false;
+                        }
+                    });            
+            }
+        },
     }
 );

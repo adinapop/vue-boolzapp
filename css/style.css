@@ -20,13 +20,13 @@ body {
     border-right: 2px solid rgba(217,219,214,0.8);
 }
 
-.main-sidebar {
+.chat-contacts-list {
     background-color: white;
     flex-grow: 1;
     overflow-y: scroll;
 }
 
-.main-sidebar > .avatar-contacts {padding: 6px 12px;}
+.chat-contacts-list > .avatar-contacts {padding: 6px 12px;}
 
 .chat-container {
     background-image: url(../img/mine.jpg);

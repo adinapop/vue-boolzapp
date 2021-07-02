@@ -47,27 +47,24 @@
                             </section>
 
                             <section class="search-chat-section">
+
                                 <i class="fas fa-search search-sidebar"></i>
                                 <input 
                                 v-model="textSearchName" 
-                                @keyup="filteredContactName()" 
+                                @keyup="filteredContactName()"
                                 placeholder="Cerca o inizia una nuova chat">
                             </section>
 
-                            <!-- da fare il v-bind ad una classe per la visibilità -->
-                            <ul class="filtered-contact-list">
-                                <li 
-                                    v-for="(nameContact, key) in contacts" 
-                                    v-if="filteredContactName(nameContact.visible)">
-                                </li>
-                            </ul>
+                            <main class="chat-contacts-list">
 
-                            <main class="main-sidebar">
-                                <div class="avatar-contacts" v-for="(contact, index) in contacts" :class="colorChat(index)" @click="thisChat(index)">
-
+                                <div 
+                                class="avatar-contacts" 
+                                v-for="(contact, index) in contacts" 
+                                v-if="contact.visible"
+                                :class="colorChat(index)" 
+                                @click="thisChat(index)">
                                     <img :src="getImg(contact)" alt="Avatar contact">
                                     <span>{{ contact.name }}</span>
-
                                 </div>
                             </main>
 
