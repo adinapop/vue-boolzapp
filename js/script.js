@@ -95,6 +95,7 @@ new Vue (
 
             currentUserIndex: 0,
             newMessage: "",
+            textSearchName: "",
         },
         
         methods: {
@@ -163,8 +164,19 @@ new Vue (
                 }, 2000)
             },
 
-            // function per il filter
-            
+            // function per filtare i contacts e cercare quello che vuoi
+            filteredContactName: function(nameContact, key) { 
+                
+                this.contacts.forEach((nameContact, key) => {
+                    console.log(nameContact.name)
+
+                    if (this.nameContact.name.toLowerCase().includes(textSearchName.toLowerCase())) {
+                        this.nameContact.visible = true;
+                    } else {
+                        this.nameContact.visible = false;
+                    }
+                });
+            },
         }
     }
 );

@@ -17,8 +17,7 @@
         <div id="app">
 
             <div class="container main-container">
-                <div
-                    class="row">
+                <div class="row">
                     <div class="col-4 p-0">
 
                         <div class="sidebar">
@@ -49,19 +48,29 @@
 
                             <section class="search-chat-section">
                                 <i class="fas fa-search search-sidebar"></i>
-                                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                                <input 
+                                v-model="textSearchName" 
+                                @keyup="filteredContactName()" 
+                                placeholder="Cerca o inizia una nuova chat">
                             </section>
 
+                            <!-- da fare il v-bind ad una classe per la visibilità -->
+                            <ul class="filtered-contact-list">
+                                <li 
+                                    v-for="(nameContact, key) in contacts" 
+                                    v-if="filteredContactName(nameContact.visible)">
+                                </li>
+                            </ul>
+
                             <main class="main-sidebar">
-                                <div class="avatar-contacts" 
-                                v-for="(contact, index) in contacts"
-                                :class="colorChat(index)"
-                                @click="thisChat(index)">
+                                <div class="avatar-contacts" v-for="(contact, index) in contacts" :class="colorChat(index)" @click="thisChat(index)">
+
                                     <img :src="getImg(contact)" alt="Avatar contact">
                                     <span>{{ contact.name }}</span>
+
                                 </div>
                             </main>
-                        
+
                         </div>
                     </div>
 
@@ -86,17 +95,18 @@
                                 </div>
                             </nav>
 
-                            <main class="chat-container">
-                                
+                            <main
+                                class="chat-container">
+
                                 <!-- creo un altro div per poter inserire dentro entrambe le boxes dei messaggi sent o received -->
                                 <div v-for="(message, index) in contacts[currentUserIndex].messages">
-                                    
+
                                     <div class="send-message-box" v-if="controllMessage(message.status)">
                                         <div class="sent">
                                             <div>{{ message.text }}</div>
                                             <div class="last-access">{{ message.date }}</div>
                                         </div>
-                                    </div>                                  
+                                    </div>
                                     <div class="received-message-box" v-else="controllMessage(message.status)">
                                         <div class="received">
                                             <div>{{ message.text }}</div>
@@ -114,9 +124,7 @@
                                 </div>
 
                                 <div class="messagge-input">
-                                    <input placeholder="Scrivi un messaggio"
-                                    v-model="newMessage"
-                                    @keyup.enter="addNewMessage">
+                                    <input placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addNewMessage">
                                 </div>
 
                                 <div class="footer-icon-container">
@@ -124,13 +132,12 @@
                                 </div>
                             </footer>
 
-
                         </div>
-
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+        <script src="./js/script.js"></script>
     </body>
-</html></div><script src="./js/script.js"></script></body></html>
+</html>
