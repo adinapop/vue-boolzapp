@@ -98,11 +98,22 @@ new Vue (
         },
         
         methods: {
-            // function per immagine dinamiche, associata direttamene al nome utente
+            // function per immagine dinamica, associata direttamene al nome utente
             getImg: function(contact) {
                 return "./img/avatar" + contact.avatar + ".jpg";
             },
 
+            // function per il datetime
+            getCurrentDateTime: function() {
+                const dateTime = dayjs();
+                return dateTime.format("DD/MM/YYYY HH:mm:ss")
+            },
+
+            // function per la prima lettera maiuscola
+            toUpperCase: function(word) {
+                word.charAt(0).toUpperCase() + word.slice(1);
+            },
+            
             // function per indicare quale esatto user voglio
             thisChat: function(index) {
                 return this.currentUserIndex = index;
@@ -128,21 +139,32 @@ new Vue (
             // function per inserire un nuovo messaggio all'interno dell'oggetto status:Sent perché deve essere nella casella verde
             addNewMessage: function() { 
                 this.newMessage = this.newMessage[0].toUpperCase() + this.newMessage.slice(1);
-                this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:26", text: this.newMessage, status: "sent"});
-                this.newMessage = ""; // TODO: Non si cancella l'input
+                this.contacts[this.currentUserIndex].messages.push(
+                    {
+                        date: this.getCurrentDateTime(), 
+                        text: this.newMessage, 
+                        status: "sent"
+                    }
+                    );
+                this.newMessage = ""; 
                 this.receiveAnswer();
             },
 
             // function per risposta
             receiveAnswer: function() {
                 setTimeout(() => {
-                    return this.contacts[this.currentUserIndex].messages.push({date: "01/07/2021 14:58:27", text: "Ok", status: "received"});
-                }, 1000)
+                    return this.contacts[this.currentUserIndex].messages.push(
+                        {
+                            date: this.getCurrentDateTime(), 
+                            text: "Ok", 
+                            status: "received"
+                        }
+                        );
+                }, 2000)
             },
+
+            // function per il filter
             
-            toUpperCase: function(word) {
-                word.charAt(0).toUpperCase() + word.slice(1);
-            },
         }
     }
 );
